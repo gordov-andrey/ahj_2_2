@@ -17,6 +17,9 @@ const render = () => {
   });
 }
 
+id.style.cursor = "pointer";
+title.style.cursor = "pointer";
+
 id.addEventListener('click', () => {
   arr.sort(function (a, b) {
     return b.id - a.id;
