@@ -1,0 +1,7 @@
+body {
+    color: #999;
+}
+.col {
+    width: auto;
+    border: 2px solid black;
+}
