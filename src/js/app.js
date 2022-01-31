@@ -4,6 +4,16 @@ const arr = JSON.parse(JSON.stringify(data));
 const table = document.querySelector('.row');
 const id = document.querySelector('#id');
 const title = document.querySelector('#title');
+const tr = document.querySelectorAll('tr');
+
+const remover = (e) => {
+  e.forEach(item => {
+    if (item.previousElementSibling === null) {
+      return;
+    }
+    item.remove();
+  })
+}
 
 const render = () => {
   arr.forEach(item => {
@@ -21,13 +31,7 @@ id.addEventListener('click', () => {
   arr.sort(function (a, b) {
     return b.id - a.id;
   });
-  const tr = document.querySelectorAll('tr');
-  tr.forEach(item => {
-    if (item.previousElementSibling === null) {
-      return;
-    }
-    item.remove();
-  })
+  remover(tr);
   id.innerHTML = `id &darr;`;
   title.innerHTML = `title`;
 
@@ -38,13 +42,7 @@ title.addEventListener('click', () => {
   arr.sort(function (a, b) {
     return b.title.localeCompare(a.title);
   });
-  const tr = document.querySelectorAll('tr');
-  tr.forEach(item => {
-    if (item.previousElementSibling === null) {
-      return;
-    }
-    item.remove();
-  })
+  remover(tr);
   id.innerHTML = `id`;
   title.innerHTML = `title &darr;`;
 
